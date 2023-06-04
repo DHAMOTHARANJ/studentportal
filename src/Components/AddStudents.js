@@ -28,7 +28,6 @@ function AddStudents({students, setStudents}) {
     description={"Fill the form to add new Employee Info"}
     >
     <div className='form-group'>
-        <h4>Add-Students</h4>
        <div className='boxes-group'>
         <TextField className='boxes' label="ID" variant="filled" color="success" focused 
         placeholder='Enter ID of student'

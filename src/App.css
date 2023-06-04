@@ -40,12 +40,11 @@ nav{
 .card-btn-group>button{
   padding: 5px;
   width: 55px;
-  border: none;
   border-radius: 4px;
   transition: 0.3s;
 }
 .card-btn-group>button:hover{
-  background-color: black;
+  background-color: rgb(42, 134, 255);
   color: white;
 }
 input{
@@ -56,4 +55,19 @@ input{
 .form-group{
   padding: 7px; 
 }
-
+.boxes{
+  width: 90%;
+}
+.submit-btn{
+  margin: 1rem auto;
+}
+#submit-btn{
+  width: 15%;
+}
+.logo-pin{
+  width: 90px;
+  margin-right: 2rem;
+}
+.logo-pin img{
+  width: 100%;
+}

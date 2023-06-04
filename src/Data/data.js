@@ -1,22 +1,30 @@
 export const data = [
     {
         "id" : "1",
-        "name" : "Dhamo",
+        "name" : "Dhamotharan J",
+        "education" : "BE",
+        "role" : "Engineer",
         "batch" : "B43WE"
     },
     {
         "id" : "2",
-        "name" : "Karthi",
+        "name" : "Karthikeyan J",
+        "education" : "BE",
+        "role" : "Engineer",
         "batch" : "B43WE"
     },
     {
         "id" : "3",
-        "name" : "Jagan",
+        "name" : "Jaganath K",
+        "education" : "Bcom",
+        "role" : "Business Administration",
         "batch" : "B43WE"
     },
     {
         "id" : "4",
-        "name" : "Amutha",
+        "name" : "Amutha J",
+        "education" : "Bcom",
+        "role" : "Business Administration",
         "batch" : "B43WE"
     }
 ]

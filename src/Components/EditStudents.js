@@ -1,57 +1,111 @@
 import React, { useEffect, useState } from 'react'
+import Base from '../Base/Base'
+import { useNavigate, useParams } from 'react-router-dom'
+import { Button, TextField } from '@mui/material'
 
 function EditStudents({studId, students, setStudents}) {
-  const [id, setId] = useState("")
+  const {id} = useParams()
+  const navigate = useNavigate()
+  const [idx, setIdx] = useState("")
   const [name, setName] = useState("")
   const [batch, setBatch] = useState("")
+  const [role, setRole] = useState("")
+  const [education, setEducation] = useState("")
   useEffect(()=>{
-    const studentData = students.find(stud=> stud.id === studId);
+    const studentData = students.find(stud=> stud.id === id);
     if(studentData){
-    setId(studentData.id)
+    setIdx(studentData.id)
     setName(studentData.name)
+    setRole(studentData.role)
+    setEducation(studentData.education)
     setBatch(studentData.batch)
     }
-  }, [studId, students])
+  }, [id, students])
   const updateStudent =()=>{
     // console.log(studId)
-    const studIndex = students.findIndex((stud)=>stud.id === studId)
+    const studIndex = students.findIndex((stud)=>stud.id === id)
    
     const updatedStudent = {
       id,
       name,
-      batch
+      batch,
+      role,
+      education
     }
     
     students[studIndex] = updatedStudent  
-    setStudents([...students])  
+    setStudents([...students]) 
+     navigate('/students')
   }
   return (
+    <Base
+    title={"Edit the Employee Details"}
+    description={"Fill the form to Edit the Employee Detail"}
+    >
     <div className='form-group'>
-        <h4>Add-Students</h4>
-        <input
+        <TextField
+          className='boxes'
+          label="ID"
+          variant="standard"
+          color="warning"
+          focused
         placeholder='Enter ID of student'
         type='number'
-        value={id}
-        onChange={(e)=>setId(e.target.value)}
+        value={idx}
+        onChange={(e)=>setIdx(e.target.value)}
         />
-        <input
-        placeholder='Enter Name of student'
+        <TextField
+          className='boxes'
+          label="Name"
+          variant="standard"
+          color="warning"
+          focused
+        placeholder='Enter Name'
         type='text'
         value={name}
         onChange={(e)=>setName(e.target.value)}
         />
-        <input 
-        placeholder='Enter Batch of student'
+         <TextField
+          className='boxes'
+          label="Role"
+          variant="standard"
+          color="warning"
+          focused
+        placeholder='Enter Role'
+        type='text'
+        value={role}
+        onChange={(e)=>setRole(e.target.value)}
+        />
+         <TextField
+          className='boxes'
+          label="Name"
+          variant="standard"
+          color="warning"
+          focused
+        placeholder='Enter Education'
+        type='text'
+        value={education}
+        onChange={(e)=>setEducation(e.target.value)}
+        />
+        <TextField
+          className='boxes'
+          label="Batch"
+          variant="standard"
+          color="warning"
+          focused
+        placeholder='Enter Batch'
         type='text'
         value={batch}
         onChange={(e)=>setBatch(e.target.value)}
         />
-        <div>
-        <button
-        onClick={updateStudent}
-        >Update student</button>
+        <div className='submit-btn'> 
+        <Button id='submit-btn' onClick={updateStudent}
+        variant="contained" color="success">
+            Update Info
+        </Button>
         </div>
     </div>
+    </Base>
   )
 }
 
